@@ -128,6 +128,27 @@ Fault Detection
 Alert Message Sent
 ```
 
+## 🏗️ Hardware Block Diagram
+
+```text
+
+<img width="777" height="729" alt="image" src="https://github.com/user-attachments/assets/eb27da11-27a1-4ff2-8b32-8b49e70ff84d" />
+
+```
+---
+
+## 🔌 Peripheral Interfaces
+
+| Peripheral | Interface |
+|-------------|-----------|
+| 📱 GSM Module (M660A) | UART |
+| 💾 AT24C256 EEPROM | I2C |
+| 🌡️ DHT11 Sensor | GPIO |
+| 📟 LCD Display | GPIO |
+| ⌨️ 4×4 Matrix Keypad | GPIO |
+| ⏰ RTC | Internal RTC |
+| 🔘 Switch | External Interrupt (EINT0) |
+
 ---
 
 ## 📱 SMS Commands
@@ -206,16 +227,6 @@ Alert Message Sent
 
 ---
 
-## 📚 Technologies Used
-
-![Embedded C](https://img.shields.io/badge/Embedded-C-blue)
-![ARM7 LPC2148](https://img.shields.io/badge/ARM7-LPC2148-red)
-![UART](https://img.shields.io/badge/UART-Communication-green)
-![I2C](https://img.shields.io/badge/I2C-Protocol-yellow)
-![GSM](https://img.shields.io/badge/GSM-SMS-orange)
-
----
-
 ## 🎯 Applications
 
 🏭 Industrial Monitoring
@@ -234,32 +245,15 @@ Alert Message Sent
 
 ---
 
-## 👩‍💻 Author
+## 👩‍💻 Project Presented By
 
-### **Sai Madhuri Samineedi**
+### **CH LAKSHMI SWAMY**
 
-🎓 Electronics and Communication Engineering (ECE)
+B.Tech Electronics and Communication Engineering (ECE)
 
-### Skills
+Vector India Major Project'
 
-⚡ Embedded C
-
-🔧 ARM7 LPC2148
-
-📡 UART Communication
-
-🔄 I2C Protocol
-
-📱 GSM Interfacing
-
-🌡 Sensor Interfacing
+Embedded Systems | LPC2148 | I2C
 
 ---
-
-## ⭐ Support
-
-If you like this project, please give it a ⭐ on GitHub.
-
----
-
 ### 🚀 "Ensuring Industrial Safety Through Smart Embedded Systems" 🚀
