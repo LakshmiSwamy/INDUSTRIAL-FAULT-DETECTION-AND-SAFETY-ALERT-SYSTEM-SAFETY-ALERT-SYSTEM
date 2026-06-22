@@ -131,7 +131,7 @@ Alert Message Sent
 ## 🏗️ Block Diagram
 
 
-![Block Diagram](https://github.com/user-attachments/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
+<img width="777" height="729" alt="image" src="https://github.com/user-attachments/assets/45711989-631a-4854-849a-7ea48f32dbb4" />
 
 ---
 
