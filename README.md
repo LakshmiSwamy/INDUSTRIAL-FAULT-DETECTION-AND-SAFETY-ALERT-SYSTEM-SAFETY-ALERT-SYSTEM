@@ -128,13 +128,10 @@ Fault Detection
 Alert Message Sent
 ```
 
-## 🏗️ Hardware Block Diagram
-
-```text
+## 🏗️  Block Diagram
 
 <img width="777" height="729" alt="image" src="https://github.com/user-attachments/assets/eb27da11-27a1-4ff2-8b32-8b49e70ff84d" />
 
-```
 ---
 
 ## 🔌 Peripheral Interfaces
