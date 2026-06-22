@@ -128,9 +128,11 @@ Fault Detection
 Alert Message Sent
 ```
 
-## 🏗️  Block Diagram
+## 🏗️ Block Diagram
 
-<img width="777" height="729" alt="image" src="https://github.com/user-attachments/assets/eb27da11-27a1-4ff2-8b32-8b49e70ff84d" />
+<p align="center">
+  <img src="images/block_diagram.png" alt="INDUSGUARD Block Diagram" width="800">
+</p>
 
 ---
 
