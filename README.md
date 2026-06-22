@@ -249,9 +249,8 @@ Alert Message Sent
 
 B.Tech Electronics and Communication Engineering (ECE)
 
-Vector India Major Project'
+Vector India Major Project
 
 Embedded Systems | LPC2148 | I2C
 
 ---
-### 🚀 "Ensuring Industrial Safety Through Smart Embedded Systems" 🚀
