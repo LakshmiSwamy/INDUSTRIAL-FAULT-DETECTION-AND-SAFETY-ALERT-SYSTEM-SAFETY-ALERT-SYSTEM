@@ -130,8 +130,9 @@ Alert Message Sent
 
 ## 🏗️ Block Diagram
 
+
 <p align="center">
-  <img src="./images/block_diagram.png" alt="Block Diagram" width="800"/>
+  <img src="images/block_diagram.png" alt="Block Diagram" width="800">
 </p>
 
 ---
