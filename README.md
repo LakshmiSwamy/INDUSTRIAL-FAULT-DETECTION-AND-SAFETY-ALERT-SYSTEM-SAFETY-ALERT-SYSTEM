@@ -1,201 +1,186 @@
-# INDUSTRIAL-FAULT-DETECTION-AND-SAFETY-ALERT-SYSTEM-SAFETY-ALERT-SYSTEM
 # 🏭 INDUSGUARD - Industrial Fault Detection and Safety Alert System 🚨
 
-![Embedded Systems](https://img.shields.io/badge/Embedded%20Systems-LPC2148-blue)
+![Platform](https://img.shields.io/badge/Platform-ARM7%20LPC2148-blue)
 ![Language](https://img.shields.io/badge/Language-Embedded%20C-green)
-![Platform](https://img.shields.io/badge/Platform-ARM7-red)
+![Protocol](https://img.shields.io/badge/Communication-GSM%20%7C%20UART-orange)
 ![Status](https://img.shields.io/badge/Status-Completed-success)
 
 ---
 
-## 📌 Overview
+## 📖 About
 
-**INDUSGUARD** is an intelligent industrial monitoring and safety system developed using **LPC2148 (ARM7)**. The system continuously monitors **temperature and humidity**, detects abnormal conditions, and sends alert notifications via **GSM SMS** to ensure industrial safety and prevent equipment failures.
+**INDUSGUARD** is an Embedded Systems project designed to provide **real-time industrial fault detection and safety monitoring**. The system continuously monitors environmental parameters and sends alert messages through GSM whenever abnormal conditions are detected.
 
-The system also allows remote configuration through SMS commands and local configuration using a keypad with password protection.
+It is built around the **LPC2148 ARM7 Microcontroller** and uses **DHT11**, **EEPROM**, **LCD**, **GSM Module**, **RTC**, and **Keypad** for monitoring and secure user interaction.
 
 ---
 
 ## ✨ Features
 
-✅ Real-time Temperature Monitoring 🌡️  
-✅ Humidity Monitoring 💧  
-✅ Fault Detection and Alert System 🚨  
-✅ SMS Notifications using GSM Module 📱  
-✅ Password Protected Access 🔐  
-✅ Remote Configuration through SMS 📩  
-✅ Local Configuration using Keypad ⌨️  
-✅ EEPROM Data Storage 💾  
-✅ RTC Timestamp Support ⏰  
-✅ LED/Buzzer Fault Indication 🔴  
-✅ User Authentication and Security 🛡️
+🔹 Real-Time Temperature Monitoring 🌡️  
+🔹 Humidity Monitoring 💧  
+🔹 GSM Based SMS Alert System 📱  
+🔹 EEPROM Data Storage 💾  
+🔹 Password Protected Access 🔐  
+🔹 RTC Timestamp Support ⏰  
+🔹 Local Parameter Configuration ⌨️  
+🔹 Remote Configuration Through SMS 📩  
+🔹 Fault Indication Using LEDs 🚨  
+🔹 Industrial Safety Monitoring 🏭
 
 ---
 
-## 🛠 Hardware Requirements
+## 🛠 Hardware Components
 
-| Component | Description |
-|------------|-------------|
-| 🔹 LPC2148 | ARM7 Microcontroller |
-| 🔹 LCD | 16x2 Display |
-| 🔹 DHT11 | Temperature & Humidity Sensor |
-| 🔹 AT24C256 | EEPROM Memory |
-| 🔹 GSM Module (M660A) | SMS Communication |
-| 🔹 4×4 Matrix Keypad | User Input |
-| 🔹 LEDs | Status Indication |
-| 🔹 Switch | External Interrupt |
-| 🔹 DB9 Cable / USB-UART | Serial Communication |
+- ⚡ LPC2148 ARM7 Microcontroller
+- 🌡 DHT11 Sensor
+- 📟 16×2 LCD Display
+- 💾 AT24C256 EEPROM
+- 📱 GSM Module (M660A)
+- ⌨️ 4×4 Matrix Keypad
+- 💡 LEDs
+- 🔘 Switches
+- 🔌 USB-UART Converter
 
 ---
 
-## 💻 Software Requirements
+## 💻 Software Used
 
-- 🖥 Keil µVision
-- ⚙ Embedded C
+- 🖥 Keil μVision
 - 🔥 Flash Magic
-- 📟 Hyper Terminal
+- ⚙ Embedded C
+- 📡 UART Communication
+- 🔄 I2C Protocol
 
 ---
 
-## 🧩 System Architecture
+## 📂 Project Structure
 
-```
-             +-------------+
-             |   DHT11      |
-             +-------------+
-                    |
-                    v
-             +-------------+
-             |   LPC2148    |
-             +-------------+
-              |     |      |
-      --------      |      --------
-      |             |             |
-      v             v             v
- +---------+   +----------+   +--------+
- | EEPROM  |   | GSM M660A|   |  LCD   |
- +---------+   +----------+   +--------+
-      |                          |
-      |                          |
-      v                          v
- Password Storage          Display Values
-      |
-      v
- +-------------+
- |  Keypad 4x4 |
- +-------------+
-```
-
----
-
-## ⚙ Working Principle
-
-### 🌡 Sensor Monitoring
-
-- Reads temperature and humidity using **DHT11**.
-- Displays current values on LCD.
-- Compares current values with preset thresholds stored in EEPROM.
-
-### 🚨 Fault Detection
-
-When sensor values exceed threshold values:
-
-- Red LED/Buzzer turns ON 🔴
-- Fault message is generated 📩
-- SMS alert is sent to authorized user 📱
-- Timestamp is obtained from RTC ⏰
-
----
-
-## 📲 Remote Control Using SMS
-
-Users can remotely control the system using SMS commands.
-
-### 🔥 Change Temperature Set Point
-
-```
-0786T38$
-```
-
-Example:
-
-Set temperature threshold to **38°C**
-
----
-
-### 📞 Change Mobile Number
-
-```
-0786M9866666699$
-```
-
-Updates the alert receiver number.
-
----
-
-### 📊 Request Sensor Information
-
-```
-0786I$
-```
-
-Returns current temperature and humidity values.
-
----
-
-## 🔐 Security Features
-
-- Password Protected Access 🔑
-- EEPROM stores password securely 💾
-- Accepts commands only from authorized numbers 📱
-- Wrong password indication via buzzer 🔔
-- System blocks after three incorrect attempts 🚫
-
----
-
-## 📁 Project Structure
-
-```
+```text
 INDUSGUARD
 │
-├── project_main.c
+├── main.c
+├── pro_main.c
+├── dummy_pro_main.c
+│
 ├── lcd.c
 ├── lcd.h
+├── lcd1.c
+│
 ├── delay.c
 ├── delay.h
-├── keypad.c
-├── keypad.h
-├── adc.c
-├── adc.h
-├── uart.c
-├── uart.h
-├── i2c.c
-├── i2c.h
-├── rtc.c
-├── rtc.h
-├── gsm.c
-├── gsm.h
+│
 ├── dht11.c
 ├── dht11.h
+│
+├── GSM.c
+├── GSM.h
+│
+├── UART_INT.c
+├── UART_INT.h
+├── uart0.h
+│
+├── rtc.c
+├── rtc.h
+├── rtc_defines.h
+│
+├── i2c_peripheral.c
+├── i2c_eeprom.c
+├── i2c_eeprom.h
+├── i2c.h
+├── i2c_defines.h
+├── i2c_eeprom_defines.h
+│
+├── kpm.c
+├── kpm.h
+├── kpm_defines.h
+│
+├── edit.c
+├── edit.h
+│
+├── exint.c
+│
+├── defines.h
+├── types.h
+│
 └── README.md
 ```
 
 ---
 
+## ⚙️ Working Principle
+
+```text
+DHT11 Sensor
+      │
+      ▼
+LPC2148 Microcontroller
+      │
+ ┌────┼────┬───────┐
+ ▼    ▼    ▼       ▼
+LCD EEPROM GSM    RTC
+Display Storage SMS Timestamp
+      │
+      ▼
+Fault Detection
+      │
+      ▼
+Alert Message Sent
+```
+
+---
+
+## 📱 SMS Commands
+
+### 🌡 Change Temperature Threshold
+
+```text
+0786T38$
+```
+
+### 📞 Update Mobile Number
+
+```text
+0786M9876543210$
+```
+
+### 📊 Request Sensor Information
+
+```text
+0786I$
+```
+
+---
+
+## 🔐 Security Features
+
+✅ Password Protected Access 🔑
+
+✅ Authorized Mobile Number Verification 📱
+
+✅ EEPROM-Based Secure Storage 💾
+
+✅ Wrong Password Detection 🚫
+
+✅ System Lock After Multiple Incorrect Attempts 🔒
+
+---
+
 ## 🚀 Modules Implemented
 
-### 📺 LCD Interface
-- Character display
-- String display
-- Integer display
+### 📟 LCD Interface
+- Character Display
+- String Display
+- Integer Display
 
-### ⌨ Keypad Interface
-- Password input
-- Set point modification
+### 🌡 DHT11 Driver
+- Temperature Reading
+- Humidity Reading
 
-### 📡 UART Communication
-- GSM communication
-- Interrupt-based transmission
+### 📱 GSM Module
+- SMS Send
+- SMS Receive
+- AT Commands
 
 ### 💾 EEPROM Interface
 - Byte Write
@@ -203,103 +188,78 @@ INDUSGUARD
 - Page Write
 - Sequential Read
 
-### 🌡 DHT11 Driver
-- Temperature sensing
-- Humidity sensing
+### ⌨️ Keypad Interface
+- Password Entry
+- Menu Navigation
 
-### 📱 GSM Module
-- SMS transmission
-- SMS reception
-- Command processing
+### ⏰ RTC Module
+- Date and Time Stamp
 
-### ⏰ RTC
-- Timestamp generation
+### 📡 UART Interrupt
+- Interrupt Driven Communication
 
----
+### 🔄 I2C Communication
+- EEPROM Communication
 
-## 🔄 Workflow
-
-```text
-Start
-  ↓
-Initialize Peripherals
-  ↓
-Read Temperature & Humidity
-  ↓
-Display on LCD
-  ↓
-Compare with Threshold Values
-  ↓
-Fault Detected?
-  ↓
-YES
-  ↓
-LED/Buzzer ON
-  ↓
-Send SMS Alert
-  ↓
-Receive SMS Commands
-  ↓
-Update EEPROM Parameters
-  ↓
-Continue Monitoring
-```
-
----
-
-## 🎯 Applications
-
-🏭 Industrial Automation  
-⚙ Manufacturing Plants  
-🔥 Boiler Monitoring Systems  
-🌡 Temperature Control Systems  
-💧 Humidity Monitoring Systems  
-🚨 Safety and Alarm Systems  
-🏢 Smart Factory Solutions
+### 🚨 External Interrupt
+- Local Configuration Mode
 
 ---
 
 ## 📚 Technologies Used
 
-- Embedded C 💻
-- ARM7 LPC2148 ⚡
-- UART Communication 📡
-- I2C Protocol 🔄
-- EEPROM Memory 💾
-- GSM Communication 📱
-- RTC ⏰
-- Sensor Interfacing 🌡
+![Embedded C](https://img.shields.io/badge/Embedded-C-blue)
+![ARM7 LPC2148](https://img.shields.io/badge/ARM7-LPC2148-red)
+![UART](https://img.shields.io/badge/UART-Communication-green)
+![I2C](https://img.shields.io/badge/I2C-Protocol-yellow)
+![GSM](https://img.shields.io/badge/GSM-SMS-orange)
 
 ---
 
-## 👨‍💻 Author
-## SWAMI
+## 🎯 Applications
+
+🏭 Industrial Monitoring
+
+⚙ Machine Safety Systems
+
+🌡 Temperature Monitoring
+
+💧 Humidity Monitoring
+
+🚨 Fault Detection Systems
+
+📱 Remote Alert Systems
+
+🏢 Smart Factory Automation
+
+---
+
+## 👩‍💻 Author
+
+### **Sai Madhuri Samineedi**
+
 🎓 Electronics and Communication Engineering (ECE)
 
 ### Skills
-- Embedded C ⚡
-- ARM7 LPC2148 🚀
-- Embedded Systems 🔧
-- UART, I2C Protocols 📡
-- Sensor Interfacing 🌡
+
+⚡ Embedded C
+
+🔧 ARM7 LPC2148
+
+📡 UART Communication
+
+🔄 I2C Protocol
+
+📱 GSM Interfacing
+
+🌡 Sensor Interfacing
 
 ---
 
-## ⭐ Future Enhancements
+## ⭐ Support
 
-- 📶 IoT Cloud Integration
-- 🌐 Wi-Fi Monitoring
-- 📱 Mobile Application Support
-- 📊 Web Dashboard
-- ☁ Data Logging and Analytics
-- 🔔 Push Notifications
+If you like this project, please give it a ⭐ on GitHub.
 
 ---
 
-## 📜 License
-
-This project is developed for **educational and industrial safety applications**.
-
----
-
-# 🌟 If you found this project useful, don't forget to ⭐ star the repository!
+### 🚀 "Ensuring Industrial Safety Through Smart Embedded Systems" 🚀
